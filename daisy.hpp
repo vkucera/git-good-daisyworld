@@ -2,6 +2,7 @@
 #define DAISY_HPP
 
 #include <cmath>
+#include <iostream>
 
 enum class DaisyColor { Black, White, None };
 
@@ -40,6 +41,7 @@ class Daisy {
   void age_and_die(int max_age);
 
   void absorb_light(double solar_luminosity);
+  friend std::ostream& operator<<(std::ostream& os, const Daisy& daisy);
 };
 
 inline double local_heating(double solar_luminosity, double albedo) {
@@ -49,3 +51,4 @@ inline double local_heating(double solar_luminosity, double albedo) {
 }
 
 #endif  // DAISY_HPP
+
