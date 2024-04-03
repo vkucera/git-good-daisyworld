@@ -1,3 +1,0 @@
-/home/srossi/icsc/git-good/build/CMakeFiles/daisyworld.dir
-/home/srossi/icsc/git-good/build/CMakeFiles/edit_cache.dir
-/home/srossi/icsc/git-good/build/CMakeFiles/rebuild_cache.dir

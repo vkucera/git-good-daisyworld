@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wextra -O3 -DNDEBUG CMakeFiles/daisyworld.dir/main.cpp.o CMakeFiles/daisyworld.dir/daisy.cpp.o CMakeFiles/daisyworld.dir/world.cpp.o -o daisyworld 
