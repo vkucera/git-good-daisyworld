@@ -20,6 +20,8 @@ class World {
   void step(double solar_luminosity);
   void compute_diffusion();
   void spread();
+
+  void print();
 };
 
 #endif  // WORLD_HPP

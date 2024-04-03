@@ -128,3 +128,13 @@ void World::spread() {
   }
   daisies_ = new_daisies;
 }
+
+void World::print() {
+  for (int i{0}; i < size_; ++i) {
+    for (int j{0}; j < size_; ++j) {
+      std::cout << daisies_[i * size_ + j];
+    }
+    std::cout << "\n";
+  }
+  std::cout << "\n";
+}
