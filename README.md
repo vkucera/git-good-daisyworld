@@ -51,6 +51,25 @@ Alternatively you can manually run the compilation with something like:
 g++ main.cpp daisy.cpp world.cpp
 ```
 
+## Output
+
+The simulation will output a result similar to the one shown below:
+
+```bash
+💮💮🌸🌸🌸🌸🌸💮💮  
+🌸💮💮🌸🌸🌸🌸🌸🌸🌸
+🌸💮💮💮🌸🌸🌸🌸🌸🌸
+💮🌸💮🌸🌸🌸🌸🌸🌸🌸
+🌸💮🌸💮💮🌸🌸💮💮🌸
+🌸🌸🌸💮💮🌸🌸🌸💮🌸
+  🌸🌸💮💮🌸💮🌸💮💮
+  🌸🌸🌸🌸🌸🌸💮💮🌸
+    🌸🌸🌸🌸🌸🌸🌸🌸
+            🌸🌸🌸🌸
+
+Global temperature: 29.1791
+```
+
 ## Bibliography
 
 [[1]](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1600-0889.1983.tb00031.x)
