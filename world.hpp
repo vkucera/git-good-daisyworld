@@ -15,6 +15,8 @@ class World {
 
  public:
   World(int, double, double, int);
+  void compute_temperatures(double solar_luminosity);
+  double global_temperature() const;
 };
 
 #endif  // WORLD_HPP

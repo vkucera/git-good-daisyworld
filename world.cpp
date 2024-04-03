@@ -33,3 +33,17 @@ World::World(int size, double start_black_percentage,
   // Shuffle the daisies
   std::shuffle(daisies_.begin(), daisies_.end(), gen_);
 }
+
+void World::compute_temperatures(double solar_luminosity) {
+  for (auto &daisy : daisies_) {
+    daisy.absorb_light(solar_luminosity);
+  }
+}
+
+double World::global_temperature() const {
+  return std::accumulate(daisies_.begin(), daisies_.end(), 0.,
+                         [](double sum, Daisy const &daisy) {
+                           return sum + daisy.temperature();
+                         }) /
+         daisies_.size();
+}
