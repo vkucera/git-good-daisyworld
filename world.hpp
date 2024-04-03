@@ -17,6 +17,8 @@ class World {
   World(int, double, double, int);
   void compute_temperatures(double solar_luminosity);
   double global_temperature() const;
+  void step(double solar_luminosity);
+  void compute_diffusion();
 };
 
 #endif  // WORLD_HPP

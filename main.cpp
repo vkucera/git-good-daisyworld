@@ -10,7 +10,7 @@ int main() {
   World world(size, start_black_percentage, start_white_percentage, max_age);
   std::cout << "Initial global temperature: " << world.global_temperature()
             << '\n';
-  world.compute_temperatures(1.);
+  world.step(1.);
   std::cout << "Global temperature after one time step: "
             << world.global_temperature() << '\n';
   return 0;

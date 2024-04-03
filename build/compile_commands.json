@@ -1,17 +1,17 @@
 [
 {
   "directory": "/home/srossi/icsc/git-good/build",
-  "command": "/usr/bin/c++    -Wall -Wextra -std=c++17 -o CMakeFiles/daisyworld.dir/main.cpp.o -c /home/srossi/icsc/git-good/main.cpp",
+  "command": "/usr/bin/c++    -Wall -Wextra -O3 -DNDEBUG -std=c++17 -o CMakeFiles/daisyworld.dir/main.cpp.o -c /home/srossi/icsc/git-good/main.cpp",
   "file": "/home/srossi/icsc/git-good/main.cpp"
 },
 {
   "directory": "/home/srossi/icsc/git-good/build",
-  "command": "/usr/bin/c++    -Wall -Wextra -std=c++17 -o CMakeFiles/daisyworld.dir/daisy.cpp.o -c /home/srossi/icsc/git-good/daisy.cpp",
+  "command": "/usr/bin/c++    -Wall -Wextra -O3 -DNDEBUG -std=c++17 -o CMakeFiles/daisyworld.dir/daisy.cpp.o -c /home/srossi/icsc/git-good/daisy.cpp",
   "file": "/home/srossi/icsc/git-good/daisy.cpp"
 },
 {
   "directory": "/home/srossi/icsc/git-good/build",
-  "command": "/usr/bin/c++    -Wall -Wextra -std=c++17 -o CMakeFiles/daisyworld.dir/world.cpp.o -c /home/srossi/icsc/git-good/world.cpp",
+  "command": "/usr/bin/c++    -Wall -Wextra -O3 -DNDEBUG -std=c++17 -o CMakeFiles/daisyworld.dir/world.cpp.o -c /home/srossi/icsc/git-good/world.cpp",
   "file": "/home/srossi/icsc/git-good/world.cpp"
 }
 ]

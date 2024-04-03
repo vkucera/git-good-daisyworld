@@ -47,3 +47,49 @@ double World::global_temperature() const {
                          }) /
          daisies_.size();
 }
+
+void World::step(double solar_luminosity) {
+  compute_temperatures(solar_luminosity);
+  compute_diffusion();
+}
+
+std::vector<double> diffuse(std::vector<double> const &temperatures, int size,
+                            double diffusion_rate) {
+  std::vector<double> new_temperatures(size * size);
+  for (int idx{0}; idx < size * size; ++idx) {
+    double temperature = temperatures[idx];
+    double const diffused_temperature = temperature * diffusion_rate / 8;
+    int const row = idx / size;
+    int const col = idx % size;
+    for (int neighborRow : {row - 1, row, row + 1}) {
+      for (int neighborCol : {col - 1, col, col + 1}) {
+        // Check if the neighbor is within the grid bounds
+        if (neighborRow >= 0 && neighborRow < size && neighborCol >= 0 &&
+            neighborCol < size) {
+          new_temperatures[neighborRow * size + neighborCol] +=
+              diffused_temperature;
+          temperature -= diffused_temperature;
+        }
+      }
+    }
+    // Keep leftover temperature
+    new_temperatures[idx] += temperature;
+  }
+  // Update original patches
+  return new_temperatures;
+}
+
+void World::compute_diffusion() {
+  std::vector<double> temperatures;
+  temperatures.reserve(daisies_.size());
+  for (auto const &p : daisies_) {
+    temperatures.push_back(p.temperature());
+  }
+
+  auto new_temperatures = diffuse(temperatures, size_, 0.5);
+
+  for (int i{0}; i < size_ * size_; ++i) {
+    daisies_[i].temperature(new_temperatures[i]);
+  }
+}
+
