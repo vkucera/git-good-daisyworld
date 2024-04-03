@@ -35,6 +35,22 @@ The flowers age with the ticks of the simulation and die out when they reach a s
 
 The live flowers spread to the neighbouring land based on seeding probability dependent on their local temperature.
 
+## Compile and run
+
+The `CMakeLists.txt` file makes it easy to compile and run the code:
+
+```
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+build/daisyworld
+```
+
+Alternatively you can manually run the compilation with something like:
+
+```
+g++ main.cpp daisy.cpp world.cpp
+```
+
 ## Bibliography
 
 [[1]](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1600-0889.1983.tb00031.x)
