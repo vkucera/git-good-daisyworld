@@ -26,6 +26,19 @@ class Daisy {
     temperature_ = t;
   }
 
+  DaisyColor color() const {
+    return color_;
+  }
+
+  double seeding_threshold() {
+    return ((0.1457 * temperature_) - (0.0032 * (temperature_ * temperature_)) -
+            0.6443);
+  }
+
+  void sprout(DaisyColor color);
+
+  void age_and_die(int max_age);
+
   void absorb_light(double solar_luminosity);
 };
 

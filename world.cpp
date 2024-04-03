@@ -51,6 +51,7 @@ double World::global_temperature() const {
 void World::step(double solar_luminosity) {
   compute_temperatures(solar_luminosity);
   compute_diffusion();
+  spread();
 }
 
 std::vector<double> diffuse(std::vector<double> const &temperatures, int size,
@@ -93,3 +94,37 @@ void World::compute_diffusion() {
   }
 }
 
+void World::spread() {
+  for (auto &daisy : daisies_) {
+    daisy.age_and_die(max_age_);
+  }
+  auto new_daisies = daisies_;
+
+  std::uniform_real_distribution<double> flat;
+  for (int idx{0}; idx < size_ * size_; ++idx) {
+    auto &daisy = daisies_[idx];
+    if (daisy.color() == DaisyColor::None ||
+        flat(gen_) >= daisy.seeding_threshold()) {
+      continue;
+    }
+    std::vector<Daisy *> barren_neighbors;
+    int const row = idx / size_;
+    int const col = idx % size_;
+    for (int neighborRow : {row - 1, row, row + 1}) {
+      for (int neighborCol : {col - 1, col, col + 1}) {
+        if (neighborRow >= 0 && neighborRow < size_ && neighborCol >= 0 &&
+            neighborCol < size_) {
+          auto &neighbor = new_daisies[neighborRow * size_ + neighborCol];
+          if (neighbor.color() == DaisyColor::None) {
+            barren_neighbors.emplace_back(&neighbor);
+          }
+        }
+      }
+    }
+    if (barren_neighbors.size() > 0) {
+      std::uniform_int_distribution<> flat_i(0, barren_neighbors.size() - 1);
+      barren_neighbors[flat_i(gen_)]->sprout(daisy.color());
+    }
+  }
+  daisies_ = new_daisies;
+}

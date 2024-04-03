@@ -19,6 +19,7 @@ class World {
   double global_temperature() const;
   void step(double solar_luminosity);
   void compute_diffusion();
+  void spread();
 };
 
 #endif  // WORLD_HPP
